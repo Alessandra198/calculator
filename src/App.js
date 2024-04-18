@@ -1,9 +1,11 @@
-import './App.css';
+import Numbers from "./Numbers";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      Hello
+      <h1>Calculator</h1>
+      <Numbers />
     </div>
   );
 }
