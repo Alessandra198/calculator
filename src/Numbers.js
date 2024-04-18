@@ -10,6 +10,7 @@ export default function Numbers() {
 
   function handleClick(event) {
     console.log(event.target.value);
+    setOperation(event.target.value);
   }
   return (
     <div className="Numbers">
