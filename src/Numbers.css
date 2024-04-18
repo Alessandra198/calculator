@@ -1,4 +1,18 @@
-.Numbers .col-3 {
-    border: 1px solid violet;
-    border-radius: 10px;
+.Numbers .boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.Numbers .box {
+  margin: 2px;
+  background-color: violet;
+  border: 1px solid violet;
+  color: white;
+  border-radius: 10px;
+}
+
+.Numbers .box:hover {
+  background-color: white;
+  color: violet;
 }

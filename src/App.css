@@ -1,3 +1,13 @@
-.App {
+.App h1 {
   text-align: center;
+  color: violet;
+  font-size: 60px;
+}
+
+.App .container {
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 15px;
+  padding: 30px 10px;
+  background-color: rgba(246, 192, 255, 0.726);
 }

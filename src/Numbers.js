@@ -1,32 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Numbers.css";
 
 export default function Numbers() {
+  let [operation, setOperation] = useState(null);
+
+  function handleResult(event) {
+    console.log(operation);
+  }
+
+  function handleClick(event) {
+    console.log(event.target.value);
+  }
   return (
     <div className="Numbers">
-      <div className="row ">
-        <div className="col-3">7</div>
-        <div className="col-3">8</div>
-        <div className="col-3">9</div>
-        <div className="col-3">x</div>
-      </div>
-      <div className="row">
-        <div className="col-3">4</div>
-        <div className="col-3">5</div>
-        <div className="col-3">6</div>
-        <div className="col-3">-</div>
-      </div>
-      <div className="row">
-        <div className="col-3">1</div>
-        <div className="col-3">2</div>
-        <div className="col-3">3</div>
-        <div className="col-3">+</div>
-      </div>
-      <div className="row">
-        <div className="col-3">00</div>
-        <div className="col-3">0</div>
-        <div className="col-3">,</div>
-        <div className="col-3">=</div>
+      <div className="boxes">
+        <button className="box" onClick={handleClick} value={7}>
+          7
+        </button>
+        <button className="box" onClick={handleClick} value={8}>
+          8
+        </button>
+        <button className="box" onClick={handleClick} value={9}>
+          9
+        </button>
+        <button className="box" onClick={handleClick} value={"x"}>
+          x
+        </button>
+        <button className="box" onClick={handleClick} value={4}>
+          4
+        </button>
+        <button className="box" onClick={handleClick} value={5}>
+          5
+        </button>
+        <button className="box" onClick={handleClick} value={6}>
+          6
+        </button>
+        <button className="box" onClick={handleClick} value={"-"}>
+          -
+        </button>
+        <button className="box" onClick={handleClick} value={1}>
+          1
+        </button>
+        <button className="box" onClick={handleClick} value={2}>
+          2
+        </button>
+        <button className="box" onClick={handleClick} value={3}>
+          3
+        </button>
+        <button className="box" onClick={handleClick} value={"+"}>
+          +
+        </button>
+        <button className="box" onClick={handleClick} value={0}>
+          0
+        </button>
+        <button className="box" onClick={handleClick} value={"."}>
+          ,
+        </button>
+        <button className="box" onClick={handleClick} value={"/"}>
+          /
+        </button>
+        <button className="box" onClick={handleResult}>
+          =
+        </button>
       </div>
     </div>
   );
