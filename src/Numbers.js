@@ -3,14 +3,20 @@ import "./Numbers.css";
 
 export default function Numbers() {
   let [operation, setOperation] = useState(null);
+  let [element, setElement] = useState(null);
 
-  function handleResult(event) {
+  function handleResult() {
     console.log(operation);
   }
 
   function handleClick(event) {
     console.log(event.target.value);
-    setOperation(event.target.value);
+    setElement(event.target.value);
+    if (operation > 0) {
+      setOperation(`${operation}${element}`);
+    } else {
+      setOperation(element);
+    }
   }
   return (
     <div className="Numbers">
@@ -24,7 +30,7 @@ export default function Numbers() {
         <button className="box" onClick={handleClick} value={9}>
           9
         </button>
-        <button className="box" onClick={handleClick} value={"x"}>
+        <button className="box" onClick={handleClick} value={"*"}>
           x
         </button>
         <button className="box" onClick={handleClick} value={4}>
