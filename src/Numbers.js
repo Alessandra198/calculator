@@ -5,7 +5,9 @@ export default function Numbers() {
   let [operation, setOperation] = useState(null);
 
   function handleResult() {
-    console.log(operation);
+    // eslint-disable-next-line
+    console.log(eval(operation));
+    setOperation(null);
   }
 
   function handleClick(event) {
