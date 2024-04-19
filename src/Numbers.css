@@ -1,7 +1,6 @@
 .Numbers .boxes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  text-align: center;
 }
 
 .Numbers .box {
@@ -10,6 +9,7 @@
   border: 1px solid violet;
   color: white;
   border-radius: 10px;
+  text-align: center;
 }
 
 .Numbers .box:hover {
