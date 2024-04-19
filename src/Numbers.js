@@ -4,6 +4,23 @@ import "./Numbers.css";
 export default function Numbers() {
   let [operation, setOperation] = useState(null);
 
+  function handleSymbols(event) {
+    let lastSymbol = operation.charAt(operation.length - 1);
+    if (
+      lastSymbol === "+" ||
+      lastSymbol === "-" ||
+      lastSymbol === "*" ||
+      lastSymbol === "/"
+    ) {
+      let newOperation = operation.slice(0, -1);
+      setOperation(newOperation + event.target.value);
+    } else {
+      setOperation(operation + event.target.value);
+      console.log(operation);
+    }
+  }
+
+
   function handleResult() {
     // eslint-disable-next-line
     console.log(eval(operation));
@@ -24,18 +41,18 @@ export default function Numbers() {
         <input type="button" className="box" onClick={handleClick} value="7" />
         <input type="button" className="box" onClick={handleClick} value="8" />
         <input type="button" className="box" onClick={handleClick} value="9" />
-        <input type="button" className="box" onClick={handleClick} value="*" />
+        <input type="button" className="box" onClick={handleSymbols} value="*" />
         <input type="button" className="box" onClick={handleClick} value="4" />
         <input type="button" className="box" onClick={handleClick} value="5" />
         <input type="button" className="box" onClick={handleClick} value="6" />
-        <input type="button" className="box" onClick={handleClick} value="-" />
+        <input type="button" className="box" onClick={handleSymbols} value="-" />
         <input type="button" className="box" onClick={handleClick} value="1" />
         <input type="button" className="box" onClick={handleClick} value="2" />
         <input type="button" className="box" onClick={handleClick} value="3" />
-        <input type="button" className="box" onClick={handleClick} value="+" />
+        <input type="button" className="box" onClick={handleSymbols} value="+" />
         <input type="button" className="box" onClick={handleClick} value="0" />
         <input type="button" className="box" onClick={handleClick} value="." />
-        <input type="button" className="box" onClick={handleClick} value="/" />
+        <input type="button" className="box" onClick={handleSymbols} value="/" />
         <input type="button" className="box" onClick={handleResult} value="=" />
       </form>
     </div>
