@@ -20,6 +20,29 @@ export default function Numbers() {
     }
   }
 
+  function handleComma(event) {
+    console.log(event.target.value);
+    let bool = true;
+    let element = operation;
+
+    for (let i = 0; i < operation.length; i++) {
+      let check = element.charAt(element.length - 1);
+      console.log(check);
+      if (check === ".") {
+        bool = false;
+        break;
+      }
+      if (check === "+" || check === "-" || check === "*" || check === "/") {
+        bool = true;
+        break;
+      }
+      element = element.slice(0, -1);
+    }
+
+    if (bool) {
+      setOperation(operation + event.target.value);
+    }
+  }
 
   function handleResult() {
     // eslint-disable-next-line
@@ -41,18 +64,38 @@ export default function Numbers() {
         <input type="button" className="box" onClick={handleClick} value="7" />
         <input type="button" className="box" onClick={handleClick} value="8" />
         <input type="button" className="box" onClick={handleClick} value="9" />
-        <input type="button" className="box" onClick={handleSymbols} value="*" />
+        <input
+          type="button"
+          className="box"
+          onClick={handleSymbols}
+          value="*"
+        />
         <input type="button" className="box" onClick={handleClick} value="4" />
         <input type="button" className="box" onClick={handleClick} value="5" />
         <input type="button" className="box" onClick={handleClick} value="6" />
-        <input type="button" className="box" onClick={handleSymbols} value="-" />
+        <input
+          type="button"
+          className="box"
+          onClick={handleSymbols}
+          value="-"
+        />
         <input type="button" className="box" onClick={handleClick} value="1" />
         <input type="button" className="box" onClick={handleClick} value="2" />
         <input type="button" className="box" onClick={handleClick} value="3" />
-        <input type="button" className="box" onClick={handleSymbols} value="+" />
+        <input
+          type="button"
+          className="box"
+          onClick={handleSymbols}
+          value="+"
+        />
         <input type="button" className="box" onClick={handleClick} value="0" />
-        <input type="button" className="box" onClick={handleClick} value="." />
-        <input type="button" className="box" onClick={handleSymbols} value="/" />
+        <input type="button" className="box" onClick={handleComma} value="." />
+        <input
+          type="button"
+          className="box"
+          onClick={handleSymbols}
+          value="/"
+        />
         <input type="button" className="box" onClick={handleResult} value="=" />
       </form>
     </div>
