@@ -45,8 +45,22 @@ export default function Numbers() {
   }
 
   function handleResult() {
+    let lastSymbol = operation.charAt(operation.length - 1);
+    let newOperation = null;
+    if (
+      lastSymbol === "+" ||
+      lastSymbol === "-" ||
+      lastSymbol === "*" ||
+      lastSymbol === "/"
+    ) {
+      newOperation = operation.slice(0, -1);
+    }
     // eslint-disable-next-line
-    console.log(eval(operation));
+    console.log(eval(newOperation));
+    resetOperation();
+  }
+
+  function resetOperation() {
     setOperation(null);
   }
 
