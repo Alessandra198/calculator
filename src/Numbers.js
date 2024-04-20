@@ -55,9 +55,9 @@ export default function Numbers() {
       lastSymbol === "/"
     ) {
       newOperation = operation.slice(0, -1);
+    } else {
+      newOperation = operation;
     }
-    // eslint-disable-next-line
-    console.log(eval(newOperation));
     // eslint-disable-next-line
     setOperation(eval(newOperation));
   }
