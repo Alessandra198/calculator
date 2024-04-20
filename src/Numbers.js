@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Numbers.css";
+import Calculator from "./Calculator";
 
 export default function Numbers() {
   let [operation, setOperation] = useState(null);
@@ -57,11 +58,8 @@ export default function Numbers() {
     }
     // eslint-disable-next-line
     console.log(eval(newOperation));
-    resetOperation();
-  }
-
-  function resetOperation() {
-    setOperation(null);
+    // eslint-disable-next-line
+    setOperation(eval(newOperation));
   }
 
   function handleClick(event) {
@@ -74,6 +72,7 @@ export default function Numbers() {
   }
   return (
     <div className="Numbers">
+      <Calculator operation={operation} />
       <form className="boxes">
         <input type="button" className="box" onClick={handleClick} value="7" />
         <input type="button" className="box" onClick={handleClick} value="8" />
