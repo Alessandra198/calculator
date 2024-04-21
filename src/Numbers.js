@@ -62,6 +62,10 @@ export default function Numbers() {
     setOperation(eval(newOperation));
   }
 
+  function resetOperation() {
+    setOperation(null);
+  }
+
   function handleClick(event) {
     console.log(event.target.value);
     if (operation) {
@@ -74,6 +78,16 @@ export default function Numbers() {
     <div className="Numbers">
       <Calculator operation={operation} />
       <form className="boxes">
+        <input type="button" className="box" onClick={resetOperation} value="AC" />
+        <input type="button" className="box" onClick={handleClick} value="%" />
+        <input type="button" className="box" onClick={handleClick} value="CE" />
+        <input
+          type="button"
+          className="box"
+          onClick={handleSymbols}
+          value="/"
+        />
+
         <input type="button" className="box" onClick={handleClick} value="7" />
         <input type="button" className="box" onClick={handleClick} value="8" />
         <input type="button" className="box" onClick={handleClick} value="9" />
@@ -101,14 +115,9 @@ export default function Numbers() {
           onClick={handleSymbols}
           value="+"
         />
+        <input type="button" className="box" onClick={handleClick} value="00" />
         <input type="button" className="box" onClick={handleClick} value="0" />
         <input type="button" className="box" onClick={handleComma} value="." />
-        <input
-          type="button"
-          className="box"
-          onClick={handleSymbols}
-          value="/"
-        />
         <input type="button" className="box" onClick={handleResult} value="=" />
       </form>
     </div>
