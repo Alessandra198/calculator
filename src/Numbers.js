@@ -17,23 +17,20 @@ export default function Numbers() {
       setOperation(newOperation + event.target.value);
     } else {
       setOperation(operation + event.target.value);
-      console.log(operation);
     }
   }
 
-  function percentage(event) {
+  function percentage() {
     let newOperation = operation / 100;
     setOperation(newOperation);
   }
 
   function handleComma(event) {
-    console.log(event.target.value);
     let bool = true;
     let element = operation;
 
     for (let i = 0; i < operation.length; i++) {
       let check = element.charAt(element.length - 1);
-      console.log(check);
       if (check === ".") {
         bool = false;
         break;
