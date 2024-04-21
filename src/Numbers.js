@@ -66,8 +66,12 @@ export default function Numbers() {
     setOperation(null);
   }
 
+  function deleteLast() {
+    let newOperation = operation.slice(0, -1);
+    setOperation(newOperation);
+  }
+
   function handleClick(event) {
-    console.log(event.target.value);
     if (operation) {
       setOperation(operation + event.target.value);
     } else {
@@ -78,9 +82,14 @@ export default function Numbers() {
     <div className="Numbers">
       <Calculator operation={operation} />
       <form className="boxes">
-        <input type="button" className="box" onClick={resetOperation} value="AC" />
+        <input
+          type="button"
+          className="box"
+          onClick={resetOperation}
+          value="AC"
+        />
         <input type="button" className="box" onClick={handleClick} value="%" />
-        <input type="button" className="box" onClick={handleClick} value="CE" />
+        <input type="button" className="box" onClick={deleteLast} value="CE" />
         <input
           type="button"
           className="box"
