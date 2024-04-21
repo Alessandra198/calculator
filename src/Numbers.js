@@ -21,6 +21,11 @@ export default function Numbers() {
     }
   }
 
+  function percentage(event) {
+    let newOperation = operation / 100;
+    setOperation(newOperation);
+  }
+
   function handleComma(event) {
     console.log(event.target.value);
     let bool = true;
@@ -88,7 +93,7 @@ export default function Numbers() {
           onClick={resetOperation}
           value="AC"
         />
-        <input type="button" className="box" onClick={handleClick} value="%" />
+        <input type="button" className="box" onClick={percentage} value="%" />
         <input type="button" className="box" onClick={deleteLast} value="CE" />
         <input
           type="button"
