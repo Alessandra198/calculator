@@ -10,6 +10,7 @@
   color: white;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 5px 5px 5px rgba(110, 16, 125, 0.181);
 }
 
 .Numbers .box:hover {

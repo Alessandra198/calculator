@@ -5,9 +5,10 @@
 }
 
 .App .container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 20px auto;
   border-radius: 15px;
   padding: 30px 10px;
-  background-color: rgba(246, 192, 255, 0.726);
+  background-color: rgb(246, 192, 255);
+  box-shadow: 5px 5px 5px rgba(111, 16, 125, 0.491);
 }
