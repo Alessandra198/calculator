@@ -47,6 +47,28 @@ export default function Numbers() {
     }
   }
 
+  function handleDoubleZero(event) {
+    if (operation < 0) {
+      setOperation(0);
+    }
+    let number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let bool = false;
+    let newOperation = null;
+    for (let i = 0; i < number; i++) {
+      let check = newOperation.charAt(newOperation.length - 1);
+      if (check === number[i] || check === ".") {
+        bool = true;
+        break;
+      }
+    }
+    if (bool) {
+      newOperation = 0;
+    } else {
+      newOperation = event.target.value;
+    }
+    setOperation(operation + newOperation);
+  }
+
   function handleResult() {
     let lastSymbol = operation.charAt(operation.length - 1);
     let newOperation = null;
@@ -126,7 +148,12 @@ export default function Numbers() {
           onClick={handleSymbols}
           value="+"
         />
-        <input type="button" className="box" onClick={handleClick} value="00" />
+        <input
+          type="button"
+          className="box"
+          onClick={handleDoubleZero}
+          value="00"
+        />
         <input type="button" className="box" onClick={handleClick} value="0" />
         <input type="button" className="box" onClick={handleComma} value="." />
         <input type="button" className="box" onClick={handleResult} value="=" />
