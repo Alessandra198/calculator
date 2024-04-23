@@ -116,6 +116,11 @@ export default function Numbers() {
     }
   }
 
+  /*function handlePow() {
+    let base = operation.charAt(operation.length - 1);
+    setOperation(Math.pow(base, 2));
+  }*/
+
   return (
     <div className="Numbers">
       <Calculator operation={operation} />
@@ -142,7 +147,7 @@ export default function Numbers() {
           value="("
         />
         <input type="button" className="box" onClick={handleClick} value=")" />
-        <input type="button" className="box" onClick={handleClick} value="^" />
+        <input type="button" className="box" onClick={handleClick} value="x²" />
         <input type="button" className="box" onClick={handleClick} value="√" />
 
         <input type="button" className="box" onClick={handleClick} value="7" />
