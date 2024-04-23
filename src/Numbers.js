@@ -94,6 +94,23 @@ export default function Numbers() {
       setOperation(event.target.value);
     }
   }
+
+  function handleParenthesis(event) {
+    if (event.target.value === "(") {
+      let lastSymbol = operation.charAt(operation.length - 1);
+      if (
+        lastSymbol === "+" ||
+        lastSymbol === "-" ||
+        lastSymbol === "*" ||
+        lastSymbol === "/"
+      ) {
+        setOperation(operation + event.target.value);
+      } else {
+        setOperation(operation + "*" + event.target.value);
+      }
+    }
+  }
+
   return (
     <div className="Numbers">
       <Calculator operation={operation} />
@@ -113,7 +130,12 @@ export default function Numbers() {
           value="/"
         />
 
-        <input type="button" className="box" onClick={handleClick} value="(" />
+        <input
+          type="button"
+          className="box"
+          onClick={handleParenthesis}
+          value="("
+        />
         <input type="button" className="box" onClick={handleClick} value=")" />
         <input type="button" className="box" onClick={handleClick} value="^" />
         <input type="button" className="box" onClick={handleClick} value="√" />
