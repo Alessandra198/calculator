@@ -89,7 +89,12 @@ export default function Numbers() {
 
   function handleClick(event) {
     if (operation) {
-      setOperation(operation + event.target.value);
+      let lastSymbol = operation.charAt(operation.length - 1);
+      if (lastSymbol === ")") {
+        setOperation(operation + "*" + event.target.value);
+      } else {
+        setOperation(operation + event.target.value);
+      }
     } else {
       setOperation(event.target.value);
     }
