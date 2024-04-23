@@ -17,3 +17,7 @@
   background-color: white;
   color: violet;
 }
+
+.Numbers .zero {
+  grid-column: span 2;
+}
