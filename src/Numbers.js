@@ -4,13 +4,15 @@ import Calculator from "./Calculator";
 
 export default function Numbers() {
   const [operation, setOperation] = useState(null);
+  let [result, setResult] = useState(false);
 
   function handleSymbols(event) {
     if (operation === null) {
       setOperation(0 + event.target.value);
       // eslint-disable-next-line
-    } else if (operation === eval(operation)) {
+    } else if (result) {
       setOperation(operation + event.target.value);
+      setResult(false);
     } else {
       let lastSymbol = operation.charAt(operation.length - 1);
       if (
@@ -72,6 +74,7 @@ export default function Numbers() {
       }
       // eslint-disable-next-line
       setOperation(eval(newOperation));
+      setResult(true);
     }
   }
 
