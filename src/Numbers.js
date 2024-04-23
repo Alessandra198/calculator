@@ -3,20 +3,27 @@ import "./Numbers.css";
 import Calculator from "./Calculator";
 
 export default function Numbers() {
-  let [operation, setOperation] = useState(null);
+  const [operation, setOperation] = useState(null);
 
   function handleSymbols(event) {
-    let lastSymbol = operation.charAt(operation.length - 1);
-    if (
-      lastSymbol === "+" ||
-      lastSymbol === "-" ||
-      lastSymbol === "*" ||
-      lastSymbol === "/"
-    ) {
-      let newOperation = operation.slice(0, -1);
-      setOperation(newOperation + event.target.value);
-    } else {
+    if (operation === null) {
+      setOperation(0 + event.target.value);
+      // eslint-disable-next-line
+    } else if (operation === eval(operation)) {
       setOperation(operation + event.target.value);
+    } else {
+      let lastSymbol = operation.charAt(operation.length - 1);
+      if (
+        lastSymbol === "+" ||
+        lastSymbol === "-" ||
+        lastSymbol === "*" ||
+        lastSymbol === "/"
+      ) {
+        let newOperation = operation.slice(0, -1);
+        setOperation(newOperation + event.target.value);
+      } else {
+        setOperation(operation + event.target.value);
+      }
     }
   }
 
@@ -47,23 +54,25 @@ export default function Numbers() {
     }
   }
 
-
-
   function handleResult() {
-    let lastSymbol = operation.charAt(operation.length - 1);
-    let newOperation = null;
-    if (
-      lastSymbol === "+" ||
-      lastSymbol === "-" ||
-      lastSymbol === "*" ||
-      lastSymbol === "/"
-    ) {
-      newOperation = operation.slice(0, -1);
+    if (operation === null) {
+      setOperation(null);
     } else {
-      newOperation = operation;
+      let lastSymbol = operation.charAt(operation.length - 1);
+      let newOperation = null;
+      if (
+        lastSymbol === "+" ||
+        lastSymbol === "-" ||
+        lastSymbol === "*" ||
+        lastSymbol === "/"
+      ) {
+        newOperation = operation.slice(0, -1);
+      } else {
+        newOperation = operation;
+      }
+      // eslint-disable-next-line
+      setOperation(eval(newOperation));
     }
-    // eslint-disable-next-line
-    setOperation(eval(newOperation));
   }
 
   function resetOperation() {
@@ -128,7 +137,12 @@ export default function Numbers() {
           onClick={handleSymbols}
           value="+"
         />
-        <input type="button" className="box zero" onClick={handleClick} value="0" />
+        <input
+          type="button"
+          className="box zero"
+          onClick={handleClick}
+          value="0"
+        />
         <input type="button" className="box" onClick={handleComma} value="." />
         <input type="button" className="box" onClick={handleResult} value="=" />
       </form>
