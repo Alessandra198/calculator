@@ -113,6 +113,11 @@ export default function Numbers() {
           value="/"
         />
 
+        <input type="button" className="box" onClick={handleClick} value="(" />
+        <input type="button" className="box" onClick={handleClick} value=")" />
+        <input type="button" className="box" onClick={handleClick} value="^" />
+        <input type="button" className="box" onClick={handleClick} value="√" />
+
         <input type="button" className="box" onClick={handleClick} value="7" />
         <input type="button" className="box" onClick={handleClick} value="8" />
         <input type="button" className="box" onClick={handleClick} value="9" />
