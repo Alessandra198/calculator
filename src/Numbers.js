@@ -32,6 +32,7 @@ export default function Numbers() {
   function percentage() {
     let newOperation = operation / 100;
     setOperation(newOperation);
+    setResult(true);
   }
 
   function handleComma(event) {
