@@ -18,6 +18,6 @@
   color: violet;
 }
 
-.Numbers .zero {
-  grid-column: span 2;
+.Numbers .result {
+  grid-column: span 4;
 }

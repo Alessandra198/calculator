@@ -116,11 +116,6 @@ export default function Numbers() {
     }
   }
 
-  /*function handlePow() {
-    let base = operation.charAt(operation.length - 1);
-    setOperation(Math.pow(base, 2));
-  }*/
-
   return (
     <div className="Numbers">
       <Calculator operation={operation} />
@@ -139,16 +134,6 @@ export default function Numbers() {
           onClick={handleSymbols}
           value="/"
         />
-
-        <input
-          type="button"
-          className="box"
-          onClick={handleParenthesis}
-          value="("
-        />
-        <input type="button" className="box" onClick={handleClick} value=")" />
-        <input type="button" className="box" onClick={handleClick} value="x²" />
-        <input type="button" className="box" onClick={handleClick} value="√" />
 
         <input type="button" className="box" onClick={handleClick} value="7" />
         <input type="button" className="box" onClick={handleClick} value="8" />
@@ -177,14 +162,23 @@ export default function Numbers() {
           onClick={handleSymbols}
           value="+"
         />
+        <input type="button" className="box" onClick={handleClick} value="0" />
+
         <input
           type="button"
-          className="box zero"
-          onClick={handleClick}
-          value="0"
+          className="box"
+          onClick={handleParenthesis}
+          value="("
         />
+        <input type="button" className="box" onClick={handleClick} value=")" />
         <input type="button" className="box" onClick={handleComma} value="." />
-        <input type="button" className="box" onClick={handleResult} value="=" />
+
+        <input
+          type="button"
+          className="box result"
+          onClick={handleResult}
+          value="="
+        />
       </form>
     </div>
   );
